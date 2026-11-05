@@ -37,8 +37,8 @@ export default function Nav() {
       className="nav"
       style={{
         background: scrolled
-          ? 'rgba(10,10,11,0.85)'
-          : 'rgba(10,10,11,0.7)',
+          ? 'rgba(7,7,11,0.8)'
+          : 'rgba(7,7,11,0.35)',
       }}
     >
       <a href="#" className="nav-logo" aria-label="Putra Irawan home">
@@ -76,7 +76,7 @@ export default function Nav() {
           justify-content: space-between;
           backdrop-filter: blur(20px);
           -webkit-backdrop-filter: blur(20px);
-          border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+          border-bottom: 1px solid var(--border);
           transition: background 0.3s ease;
         }
         .nav-logo {
@@ -99,21 +99,20 @@ export default function Nav() {
           color: var(--text2);
           text-decoration: none;
           font-size: 0.85rem;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
+          letter-spacing: 0;
           font-weight: 500;
           transition: color 0.2s;
         }
         .nav-links a:hover {
-          color: var(--accent);
+          color: var(--text);
         }
         .nav-cta {
-          background: var(--accent);
-          color: #0A0A0B;
+          background: var(--grad);
+          color: #0B0B11;
           padding: 0.5rem 1.25rem;
-          border-radius: 100px;
+          border-radius: 10px;
           font-size: 0.8rem;
-          font-weight: 700;
+          font-weight: 600;
           text-decoration: none;
           letter-spacing: 0.04em;
           font-family: var(--font-display);
@@ -121,7 +120,7 @@ export default function Nav() {
         }
         .nav-cta:hover {
           transform: translateY(-1px);
-          box-shadow: 0 0 20px rgba(200, 255, 0, 0.4);
+          box-shadow: 0 8px 28px rgba(124, 58, 237, 0.45);
         }
 
         @media (max-width: 900px) {

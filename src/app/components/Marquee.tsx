@@ -7,15 +7,19 @@
  */
 const TECH_STACK = [
   'Next.js',
+  'Spring Boot',
+  'FastAPI',
   'NestJS',
   'TypeScript',
+  'Flutter',
   'React Native',
-  'PostgreSQL',
-  'Docker',
+  'Salesforce',
+  'n8n',
+  'AI Agents',
   'Go',
+  'Kubernetes',
   'FHIR / HL7',
-  'AWS',
-  'GraphQL',
+  'PostgreSQL',
 ];
 
 export default function TechMarquee() {
@@ -36,13 +40,15 @@ export default function TechMarquee() {
           padding: 2.5rem 0;
           border-top: 1px solid var(--border);
           border-bottom: 1px solid var(--border);
-          background: var(--surface);
+          background: var(--bg2);
           overflow: hidden;
+          mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+          -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
         }
         .marquee-track {
           display: flex;
           gap: 0;
-          animation: marquee 18s linear infinite;
+          animation: marquee 32s linear infinite;
           white-space: nowrap;
           width: max-content;
         }
@@ -61,7 +67,7 @@ export default function TechMarquee() {
         .marquee-dot {
           width: 6px;
           height: 6px;
-          background: var(--accent);
+          background: var(--grad);
           border-radius: 50%;
           flex-shrink: 0;
         }

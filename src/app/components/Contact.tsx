@@ -67,6 +67,7 @@ export default function Contact() {
         .contact {
           border-top: 1px solid var(--border);
           overflow: hidden;
+          background: radial-gradient(800px circle at 50% 120%, rgba(124, 58, 237, 0.25), transparent 60%);
         }
         .contact-inner {
           max-width: 1200px;
@@ -76,11 +77,12 @@ export default function Contact() {
         .contact-big {
           font-family: var(--font-display);
           font-size: clamp(3rem, 8vw, 7rem);
-          font-weight: 800;
+          font-weight: 700;
           letter-spacing: -0.04em;
           line-height: 0.95;
           margin-bottom: 2.5rem;
-          background: linear-gradient(135deg, var(--text) 40%, var(--text3));
+          padding-bottom: 0.12em;
+          background: linear-gradient(120deg, var(--text) 30%, #A78BFA 65%, #22D3EE);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
@@ -105,12 +107,12 @@ export default function Contact() {
           letter-spacing: 0.02em;
         }
         .contact-link.primary {
-          background: var(--accent);
-          color: #0A0A0B;
+          background: var(--grad);
+          color: #0B0B11;
         }
         .contact-link.primary:hover {
           transform: translateY(-2px);
-          box-shadow: 0 0 30px rgba(200, 255, 0, 0.35);
+          box-shadow: 0 12px 40px rgba(124, 58, 237, 0.5);
         }
         .contact-link.secondary {
           background: var(--surface);

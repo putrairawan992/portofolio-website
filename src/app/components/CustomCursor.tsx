@@ -110,7 +110,7 @@ export default function CustomCursor() {
           position: 'fixed',
           width: '40px',
           height: '40px',
-          border: '1px solid rgba(200,255,0,0.3)',
+          border: '1px solid rgba(167,139,250,0.3)',
           borderRadius: '50%',
           pointerEvents: 'none',
           zIndex: 9998,
@@ -119,7 +119,7 @@ export default function CustomCursor() {
       />
       <style jsx>{`
         .cursor-dot.hovering { transform: scale(2.5); }
-        .cursor-follow.hovering { width: 60px; height: 60px; border-color: rgba(200,255,0,0.6); }
+        .cursor-follow.hovering { width: 60px; height: 60px; border-color: rgba(167,139,250,0.6); }
       `}</style>
     </>
   );

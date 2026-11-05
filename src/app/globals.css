@@ -5,31 +5,30 @@
 /* --- CSS Custom Properties (Design Tokens) --- */
 :root {
   /* Surfaces */
-  --bg: #0A0A0B;
-  --bg2: #111113;
-  --bg3: #18181C;
-  --surface: #1E1E24;
-  --surface2: #242430;
+  --bg: #07070B;
+  --bg2: #0B0B11;
+  --bg3: #12121A;
+  --surface: rgba(255, 255, 255, 0.035);
+  --surface2: rgba(255, 255, 255, 0.06);
 
   /* Borders */
-  --border: #2A2A36;
-  --border2: #353545;
+  --border: rgba(255, 255, 255, 0.08);
+  --border2: rgba(255, 255, 255, 0.16);
 
   /* Text */
-  --text: #F0EFE8;
-  --text2: #A09FA8;
-  --text3: #5A5968;
+  --text: #F5F5F8;
+  --text2: #A3A3B5;
+  --text3: #66667C;
 
   /* Accent */
-  --accent: #C8FF00;
-  --accent2: #7B61FF;
-  --accent3: #FF6B35;
+  --accent: #A78BFA;
+  --accent2: #22D3EE;
+  --accent3: #F472B6;
+  --accent-rgb: 167, 139, 250;
+  --grad: linear-gradient(120deg, #A78BFA 0%, #60A5FA 50%, #22D3EE 100%);
   --red: #FF4545;
 
-  /* Typography */
-  --font-display: 'Syne', sans-serif;
-  --font-body: 'DM Sans', sans-serif;
-  --font-mono: 'DM Mono', monospace;
+  /* Typography: --font-display/body/mono come from next/font in layout.tsx */
 
   /* Spacing */
   --section-pad: 7rem 3rem;
@@ -74,7 +73,7 @@ body::before {
 
 /* --- Selection --- */
 ::selection {
-  background: rgba(200, 255, 0, 0.25);
+  background: rgba(var(--accent-rgb), 0.3);
   color: var(--text);
 }
 
@@ -112,7 +111,7 @@ a {
   top: -100%;
   left: 1rem;
   background: var(--accent);
-  color: #0A0A0B;
+  color: var(--bg);
   padding: 0.5rem 1rem;
   border-radius: 0 0 8px 8px;
   font-weight: 700;
@@ -196,20 +195,38 @@ section {
   display: block;
   width: 24px;
   height: 1px;
-  background: var(--accent);
+  background: var(--grad);
 }
 
 .section-title {
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3.5rem);
-  font-weight: 800;
+  font-weight: 700;
   letter-spacing: -0.03em;
   line-height: 1.05;
   margin-bottom: 1rem;
 }
 
-.section-title .accent {
-  color: var(--accent);
+.section-title .accent,
+.grad-text {
+  background: var(--grad);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Glass card used across sections */
+.glass {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, -30px); }
 }
 
 /* ============================================================

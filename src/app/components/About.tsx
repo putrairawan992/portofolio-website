@@ -1,80 +1,101 @@
 'use client';
 
-import Image from 'next/image';
 import ScrollReveal from './ScrollReveal';
 
-const SKILLS = [
-  'Next.js', 'NestJS', 'TypeScript', 'React / RN', 'Node.js', 'Go',
-  'PostgreSQL', 'Docker', 'GraphQL', 'FHIR / HL7', 'CI/CD', 'AWS',
-  'Angular', 'Laravel', 'Rust', 'Flutter',
+const SKILL_GROUPS = [
+  { icon: '◐', title: 'Frontend', items: ['React', 'Next.js', 'TypeScript', 'Angular', 'Vue', 'Nuxt', 'Tailwind CSS'] },
+  { icon: '⬢', title: 'Backend & Architecture', items: ['Node.js', 'NestJS', 'Express', 'Java', 'Spring Boot', 'Python', 'FastAPI', 'Laravel', 'Go', 'REST', 'gRPC', 'Microservices'] },
+  { icon: '▣', title: 'Mobile', items: ['React Native', 'Flutter', 'Swift', 'SwiftUI', 'UIKit', 'Kotlin'] },
+  { icon: '✦', title: 'AI & Automation', items: ['OpenAI API', 'Claude API', 'Gemini API', 'n8n', 'LLM Workflows', 'AI Agents', 'RAG'] },
+  { icon: '◈', title: 'Enterprise & Data', items: ['Salesforce (Apex, LWC, SOQL, Flow)', 'ERP', 'WMS', 'PostgreSQL', 'MySQL', 'MongoDB', 'Redis', 'HL7', 'FHIR'] },
+  { icon: '☁', title: 'Cloud & Quality', items: ['Docker', 'Kubernetes', 'AWS', 'GitHub Actions', 'CI/CD', 'OAuth2', 'JWT', 'Jest', 'XCTest'] },
+];
+
+const CERTS = [
+  { name: 'Golang', by: 'Hacktiv8', year: '2022' },
+  { name: 'DevOps Pemula', by: 'Dicoding', year: '2023' },
+  { name: 'Android Developer', by: 'Dicoding', year: '2020' },
+  { name: 'CompTIA Network+', by: 'CompTIA', year: '2015' },
 ];
 
 /**
- * About — profile card + bio + skills grid.
- * 2026: dark editorial with acid-green accent, textured card.
+ * About — summary, skill bento grid, education / certifications / languages.
  */
 export default function About() {
   return (
     <section className="about" id="about" aria-labelledby="about-heading">
       <div className="about-inner">
-        {/* Profile Card */}
         <ScrollReveal>
-          <div className="about-card" role="region" aria-label="Profile card">
-            <div className="about-avatar">
-              <Image
-                src="/images/profile.jpg"
-                alt="Putra Irawan"
-                width={80}
-                height={80}
-                className="about-avatar-img"
-              />
+          <div className="about-head">
+            <div>
+              <div className="section-tag">About me</div>
+              <h2 className="section-title" id="about-heading">
+                Engineer for systems
+                <br />
+                that <span className="accent">actually ship</span>
+              </h2>
             </div>
-            <div className="about-name">Putra Irawan</div>
-            <div className="about-role">// full_stack_engineer.ts</div>
-            <hr className="about-divider" />
-            <div className="about-detail-row">
-              <span>Location</span><span>Jakarta, Indonesia</span>
-            </div>
-            <div className="about-detail-row">
-              <span>Experience</span><span>9+ years</span>
-            </div>
-            <div className="about-detail-row">
-              <span>Availability</span><span>Open to remote</span>
-            </div>
-            <div className="about-detail-row">
-              <span>Speciality</span><span>Full Stack / NestJS</span>
-            </div>
-            <div className="float-badge" aria-label="9 years of experience">9 yrs+</div>
+            <p className="about-text">
+              Full Stack Engineer with <strong>9+ years</strong> across enterprise
+              software, fintech, web and mobile products. I&apos;ve delivered warehouse
+              and ERP modules, workflow and CRM integrations, event platforms,
+              healthcare interoperability services and AI/IoT applications. Day to day
+              that means solution architecture, REST APIs, microservices, data
+              integration, security and production delivery, with native iOS as an
+              extra specialty.
+            </p>
           </div>
         </ScrollReveal>
 
-        {/* Bio + Skills */}
-        <ScrollReveal delay={0.15}>
-          <div className="section-tag" aria-label="Section: About me">About me</div>
-          <h2 className="section-title" id="about-heading">
-            I build things<br />that{' '}
-            <span className="accent">actually work</span>
-          </h2>
-          <p className="about-text">
-            From <strong>Traveloka&apos;s booking engine</strong> to KoinWorks&apos;
-            fintech platform, from government information systems to healthcare data
-            interoperability — I&apos;ve spent 9+ years solving real-world complexity
-            with clean, scalable code.
-          </p>
-          <p className="about-text">
-            I&apos;m most at home in <strong>NestJS + TypeScript backends</strong>,
-            Next.js frontends, and the architecture decisions that make both scale.
-            I&apos;ve led engineering teams, mentored developers, and shipped products
-            used by hundreds of thousands of users.
-          </p>
-          <div className="skills-grid" role="list" aria-label="Technical skills">
-            {SKILLS.map((skill) => (
-              <span className="skill-tag" role="listitem" key={skill}>
-                {skill}
-              </span>
-            ))}
-          </div>
-        </ScrollReveal>
+        <div className="skills-bento" role="list" aria-label="Technical skills">
+          {SKILL_GROUPS.map((g, i) => (
+            <ScrollReveal key={g.title} delay={i * 0.06}>
+              <div className="skill-card glass" role="listitem">
+                <div className="skill-card-head">
+                  <span className="skill-icon" aria-hidden="true">{g.icon}</span>
+                  <h3>{g.title}</h3>
+                </div>
+                <div className="skill-tags">
+                  {g.items.map((s) => (
+                    <span className="skill-tag" key={s}>{s}</span>
+                  ))}
+                </div>
+              </div>
+            </ScrollReveal>
+          ))}
+        </div>
+
+        <div className="about-extra">
+          <ScrollReveal>
+            <div className="extra-card glass">
+              <div className="extra-label">Education</div>
+              <div className="extra-title">Bachelor of Informatics (S1 Informatika)</div>
+              <div className="extra-sub">Universitas Indo Global Mandiri, Palembang · 2011 – 2015</div>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.08}>
+            <div className="extra-card glass">
+              <div className="extra-label">Certifications</div>
+              <ul className="cert-list">
+                {CERTS.map((c) => (
+                  <li key={c.name}>
+                    <span>{c.name}</span>
+                    <span className="cert-meta">{c.by} · {c.year}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </ScrollReveal>
+          <ScrollReveal delay={0.16}>
+            <div className="extra-card glass">
+              <div className="extra-label">Languages</div>
+              <ul className="cert-list">
+                <li><span>Indonesian</span><span className="cert-meta">Native</span></li>
+                <li><span>English</span><span className="cert-meta">Professional working</span></li>
+              </ul>
+            </div>
+          </ScrollReveal>
+        </div>
       </div>
 
       <style jsx>{`
@@ -83,138 +104,135 @@ export default function About() {
           border-top: 1px solid var(--border);
         }
         .about-inner {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 5rem;
-          align-items: center;
           max-width: 1200px;
           margin: 0 auto;
         }
-
-        /* Card */
-        .about-card {
-          background: var(--surface);
-          border: 1px solid var(--border);
-          border-radius: 20px;
-          padding: 2rem;
-          padding-bottom: 3rem;
-          position: relative;
-          overflow: visible;
+        .about-head {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 4rem;
+          align-items: end;
+          margin-bottom: 3.5rem;
         }
-        .about-card::before {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background: linear-gradient(135deg, rgba(200, 255, 0, 0.04), transparent 60%);
-          pointer-events: none;
-          border-radius: 20px;
-        }
-        .about-avatar {
-          width: 80px;
-          height: 80px;
-          border-radius: 16px;
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: linear-gradient(135deg, var(--accent2), var(--accent));
-          margin-bottom: 1.25rem;
-        }
-        .about-avatar-img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-        }
-        .about-name {
-          font-family: var(--font-display);
-          font-size: 1.3rem;
-          font-weight: 700;
-          margin-bottom: 0.25rem;
-        }
-        .about-role {
-          color: var(--text2);
-          font-size: 0.85rem;
-          font-family: var(--font-mono);
-        }
-        .about-divider {
-          border: none;
-          border-top: 1px solid var(--border);
-          margin: 1.25rem 0;
-        }
-        .about-detail-row {
-          display: flex;
-          justify-content: space-between;
-          font-size: 0.82rem;
-          margin-bottom: 0.6rem;
-          color: var(--text2);
-        }
-        .about-detail-row :global(span:first-child) {
-          color: var(--text3);
-          font-family: var(--font-mono);
-          font-size: 0.72rem;
-          letter-spacing: 0.06em;
-          text-transform: uppercase;
-        }
-        .about-detail-row :global(span:last-child) {
-          color: var(--text);
-          font-weight: 500;
-        }
-        .float-badge {
-          position: absolute;
-          bottom: -0.75rem;
-          right: 1.5rem;
-          background: var(--accent);
-          color: #0A0A0B;
-          padding: 0.6rem 1rem;
-          border-radius: 12px;
-          font-family: var(--font-display);
-          font-weight: 800;
-          font-size: 0.9rem;
-          white-space: nowrap;
-          box-shadow: 0 4px 20px rgba(200, 255, 0, 0.4);
-        }
-
-        /* Text */
         .about-text {
           color: var(--text2);
           font-size: 1rem;
           line-height: 1.8;
-          font-weight: 300;
-          margin-bottom: 1.5rem;
         }
         .about-text :global(strong) {
           color: var(--text);
           font-weight: 500;
         }
 
-        /* Skills */
-        .skills-grid {
+        .skills-bento {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 1rem;
+        }
+        .skill-card {
+          padding: 1.5rem;
+          height: 100%;
+          transition: border-color 0.25s, transform 0.25s, background 0.25s;
+        }
+        .skill-card:hover {
+          border-color: rgba(var(--accent-rgb), 0.4);
+          background: var(--surface2);
+          transform: translateY(-3px);
+        }
+        .skill-card-head {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          margin-bottom: 1rem;
+        }
+        .skill-card-head h3 {
+          font-family: var(--font-display);
+          font-size: 1.05rem;
+          font-weight: 600;
+        }
+        .skill-icon {
+          width: 34px;
+          height: 34px;
+          display: grid;
+          place-items: center;
+          border-radius: 10px;
+          background: rgba(var(--accent-rgb), 0.12);
+          color: var(--accent);
+          font-size: 1rem;
+        }
+        .skill-tags {
           display: flex;
           flex-wrap: wrap;
-          gap: 0.5rem;
-          margin-top: 1.5rem;
+          gap: 0.4rem;
         }
         .skill-tag {
           background: var(--surface2);
           border: 1px solid var(--border);
-          padding: 0.3rem 0.8rem;
-          border-radius: 6px;
+          padding: 0.25rem 0.65rem;
+          border-radius: 8px;
           font-size: 0.75rem;
           color: var(--text2);
-          font-family: var(--font-mono);
-          transition: all 0.2s;
-          cursor: default;
         }
-        .skill-tag:hover {
-          border-color: var(--accent);
-          color: var(--accent);
-          background: rgba(200, 255, 0, 0.05);
+
+        .about-extra {
+          display: grid;
+          grid-template-columns: 1.1fr 1fr 0.9fr;
+          gap: 1rem;
+          margin-top: 1rem;
+        }
+        .extra-card {
+          padding: 1.5rem;
+          height: 100%;
+        }
+        .extra-label {
+          font-family: var(--font-mono);
+          font-size: 0.7rem;
+          letter-spacing: 0.12em;
+          text-transform: uppercase;
+          color: var(--accent2);
+          margin-bottom: 0.85rem;
+        }
+        .extra-title {
+          font-family: var(--font-display);
+          font-weight: 600;
+          font-size: 1.05rem;
+          margin-bottom: 0.35rem;
+        }
+        .extra-sub {
+          color: var(--text2);
+          font-size: 0.85rem;
+        }
+        .cert-list {
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap: 0.55rem;
+        }
+        .cert-list li {
+          display: flex;
+          justify-content: space-between;
+          gap: 1rem;
+          font-size: 0.88rem;
+        }
+        .cert-meta {
+          color: var(--text3);
+          font-size: 0.78rem;
+          text-align: right;
         }
 
         @media (max-width: 900px) {
-          .about-inner {
+          .about-head,
+          .about-extra {
             grid-template-columns: 1fr;
-            gap: 2rem;
+            gap: 1.5rem;
+          }
+          .skills-bento {
+            grid-template-columns: 1fr;
+          }
+        }
+        @media (min-width: 901px) and (max-width: 1100px) {
+          .skills-bento {
+            grid-template-columns: repeat(2, 1fr);
           }
         }
       `}</style>

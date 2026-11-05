@@ -5,47 +5,131 @@ import ScrollReveal from './ScrollReveal';
 
 interface ExperienceItem {
   id: string;
+  short: string;
   company: string;
   role: string;
   period: string;
-  desc: string;
+  type: 'Full-time' | 'Contract';
+  points: string[];
   stack: string[];
   featured?: boolean;
 }
 
 const EXPERIENCES: ExperienceItem[] = [
   {
-    id: 'amartha',
-    company: 'PT Amartha Mikro Fintek',
-    role: 'Engineering Manager & Developer',
-    period: 'Jul 2021 — Sep 2025',
-    desc: 'Led the engineering team building and maintaining core fintech web products. Architected the NG MIS admin platform, drove code reviews, set technical standards, and mentored developers. Delivered full stack features across Next.js, NestJS, Go, Flutter, and Vue.',
-    stack: ['Next.js', 'TypeScript', 'NestJS', 'Go', 'Flutter', 'Vue', 'MySQL', 'Laravel'],
+    id: 'gunanusa',
+    short: 'Gunanusa',
+    company: 'PT Gunanusa Utama Fabricators',
+    role: 'Enterprise Systems & Automation Engineer',
+    period: 'Nov 2025 – May 2026',
+    type: 'Contract',
+    points: [
+      'Built WMS functionality for inventory visibility, plus approval monitoring, failure/retry visibility and SLA notifications.',
+      'Customized Salesforce CRM, built REST integrations and delivered a WhatsApp notification gateway for operational alerts.',
+    ],
+    stack: ['React', 'TypeScript', 'Laravel', 'Python', 'Go', 'Salesforce', 'Node.js'],
     featured: true,
   },
   {
     id: 'chi',
+    short: 'CHI Ecosystem',
     company: 'CHI Ecosystem',
-    role: 'Senior Front End / Heavy Full Stack Engineer',
-    period: 'Aug 2024 — Dec 2025',
-    desc: 'Built cross-platform mobile apps with React Native, scalable web interfaces with Next.js App Router + Streaming SSR, and Go microservices with gRPC. Implemented Docker/Kubernetes CI/CD pipelines and led front-to-backend technical decisions at scale.',
-    stack: ['React Native', 'Next.js', 'TypeScript', 'Go', 'gRPC', 'Docker', 'Kubernetes'],
+    role: 'Senior Frontend / Full Stack Engineer',
+    period: 'Aug 2024 – Dec 2025',
+    type: 'Contract',
+    points: [
+      'Developed web and React Native experiences, real-time event interfaces and backend integrations for event operations.',
+    ],
+    stack: ['Next.js', 'React Native', 'TypeScript', 'Go', 'Java', 'Docker'],
+  },
+  {
+    id: 'amartha',
+    short: 'Amartha',
+    company: 'PT Amartha Mikro Fintek',
+    role: 'Engineering Manager',
+    period: 'Jul 2021 – Sep 2025',
+    type: 'Full-time',
+    points: [
+      'Developed and maintained product and operational fintech applications with reusable frontend components and API integrations.',
+      'Worked with cross-functional teams on design feasibility, UI quality, performance, code review and technical documentation.',
+      'Contributed to customer, lending, investment, MIS and operational workflows across enterprise modules.',
+    ],
+    stack: ['Next.js', 'TypeScript', 'Go', 'Vue', 'Angular', 'Flutter', 'Laravel', 'NestJS', 'MySQL'],
+  },
+  {
+    id: 'yaz',
+    short: 'Yaz Venture',
+    company: 'Yaz Venture',
+    role: 'Healthcare Integration Engineer',
+    period: 'Jan 2024 – May 2024',
+    type: 'Contract',
+    points: [
+      'Implemented FHIR/HL7 data exchange and mappings for Patient, Observation and Encounter records with validation and secure APIs.',
+    ],
+    stack: ['NestJS', 'TypeScript', 'PostgreSQL', 'FHIR', 'HL7 v2', 'OAuth2'],
+  },
+  {
+    id: 'bomber',
+    short: 'Bomber',
+    company: 'Bomber (Taiwan client)',
+    role: 'Mobile & Web Engineer',
+    period: '2024',
+    type: 'Contract',
+    points: [
+      'Built customer mobile booking features, owner/admin web interfaces, API integrations and reservation flows for a nightlife reservation and POS platform.',
+    ],
+    stack: ['React Native', 'Next.js', 'TypeScript', 'Angular'],
   },
   {
     id: 'koinworks',
+    short: 'KoinWorks',
     company: 'KoinWorks',
     role: 'Full Stack Engineer',
-    period: 'Jan 2020 — Jun 2021',
-    desc: "Delivered full stack features for Indonesia's leading P2P lending platform. Built responsive web UIs in React.js, mobile apps in React Native and Kotlin, backend services in Go and Laravel, and integrated Drupal JSON:API for complex content workflows.",
-    stack: ['React.js', 'React Native', 'Go', 'Laravel', 'Drupal', 'Kotlin'],
+    period: 'Jan 2020 – Jun 2021',
+    type: 'Full-time',
+    points: [
+      'Implemented responsive fintech web interfaces and worked with backend developers on features and integrations.',
+      'Improved maintainability, performance and usability across customer-facing digital experiences.',
+    ],
+    stack: ['Laravel', 'React', 'Kotlin', 'React Native', 'Go', 'Python'],
+  },
+  {
+    id: 'monggopesen',
+    short: 'Monggopesen',
+    company: 'PT Giyarto Manunggal Sejati Group / Monggopesen',
+    role: 'Software Engineer',
+    period: 'Dec 2018 – Dec 2019',
+    type: 'Full-time',
+    points: [
+      'Built and maintained responsive web interfaces, integrated backend services and supported troubleshooting.',
+      'Contributed to integrations supporting business and customer-data workflows.',
+    ],
+    stack: ['Laravel', 'React', 'Vue', 'Node.js', 'MySQL', 'MongoDB'],
   },
   {
     id: 'traveloka',
+    short: 'Traveloka',
     company: 'Traveloka',
-    role: 'Software Engineer',
-    period: 'Jan 2017 — Dec 2018',
-    desc: "Developed and maintained booking and payment module features for Southeast Asia's top travel platform. Integrated internal and third-party APIs, collaborated with QA, UI/UX, and PM teams to ensure responsive, reliable user experiences at scale.",
-    stack: ['React.js', 'TypeScript', 'Go', 'GraphQL', 'AWS', 'Docker'],
+    role: 'Software Engineer (Programmer)',
+    period: 'Jan 2017 – Dec 2018',
+    type: 'Full-time',
+    points: [
+      'Worked on app and website features for booking and payment flows and internal/third-party APIs.',
+      'Collaborated with QA, design and product teams to support stable transaction experiences.',
+    ],
+    stack: ['React', 'TypeScript', 'React Native', 'Go', 'AWS', 'MySQL', 'GraphQL'],
+  },
+  {
+    id: 'harika',
+    short: 'Harika',
+    company: 'PT Harika Propertyndo Utama',
+    role: 'IT Programmer and Network',
+    period: 'Dec 2015 – Jan 2016',
+    type: 'Full-time',
+    points: [
+      'Developed internal reporting and data-processing tools and supported database integrity and process improvements.',
+    ],
+    stack: ['Reporting', 'Database'],
   },
 ];
 
@@ -54,7 +138,7 @@ const EXPERIENCES: ExperienceItem[] = [
  * 2026: recognizable navigation paradigm with animated card accents.
  */
 export default function Experience() {
-  const [activeId, setActiveId] = useState('amartha');
+  const [activeId, setActiveId] = useState('gunanusa');
 
   const scrollToExp = useCallback((id: string) => {
     setActiveId(id);
@@ -83,7 +167,7 @@ export default function Experience() {
                   aria-label={`Jump to ${exp.company} experience`}
                   aria-current={activeId === exp.id ? 'true' : undefined}
                 >
-                  {exp.company.split(' ')[0]}
+                  {exp.short}
                 </button>
               ))}
             </ScrollReveal>
@@ -92,7 +176,7 @@ export default function Experience() {
           {/* Timeline */}
           <div className="exp-timeline">
             {EXPERIENCES.map((exp, idx) => (
-              <ScrollReveal key={exp.id} delay={idx * 0.1}>
+              <ScrollReveal key={exp.id} delay={Math.min(idx, 3) * 0.08}>
                 <div
                   className={`exp-card ${exp.featured ? 'featured' : ''}`}
                   id={`exp-${exp.id}`}
@@ -105,9 +189,16 @@ export default function Experience() {
                       </div>
                       <div className="exp-role">{exp.role}</div>
                     </div>
-                    <span className="exp-period">{exp.period}</span>
+                    <div className="exp-meta">
+                      <span className={`exp-type ${exp.type === 'Contract' ? 'contract' : ''}`}>{exp.type}</span>
+                      <span className="exp-period">{exp.period}</span>
+                    </div>
                   </div>
-                  <p className="exp-desc">{exp.desc}</p>
+                  <ul className="exp-desc">
+                    {exp.points.map((pt) => (
+                      <li key={pt}>{pt}</li>
+                    ))}
+                  </ul>
                   <div className="exp-stack" role="list" aria-label="Technologies used">
                     {exp.stack.map((tech) => (
                       <span className="exp-stack-item" role="listitem" key={tech}>
@@ -179,7 +270,7 @@ export default function Experience() {
         .exp-card {
           background: var(--surface);
           border: 1px solid var(--border);
-          border-radius: 16px;
+          border-radius: 20px;
           padding: 2rem;
           margin-bottom: 1.5rem;
           position: relative;
@@ -196,7 +287,7 @@ export default function Experience() {
           left: 0;
           width: 3px;
           height: 0;
-          background: var(--accent);
+          background: var(--grad);
           transition: height 0.4s ease;
           border-radius: 0 0 3px 3px;
         }
@@ -205,7 +296,8 @@ export default function Experience() {
           height: 100%;
         }
         .exp-card.featured {
-          border-color: rgba(200, 255, 0, 0.2);
+          border-color: rgba(var(--accent-rgb), 0.35);
+          background: radial-gradient(500px circle at 100% 0%, rgba(124, 58, 237, 0.14), transparent 60%), var(--surface);
         }
 
         .exp-header {
@@ -232,18 +324,43 @@ export default function Experience() {
           font-size: 0.75rem;
           color: var(--text3);
           font-family: var(--font-mono);
-          background: var(--bg3);
+          background: var(--surface2);
           padding: 0.3rem 0.75rem;
           border-radius: 100px;
           border: 1px solid var(--border);
           white-space: nowrap;
         }
+        .exp-meta {
+          display: flex;
+          gap: 0.4rem;
+          align-items: center;
+          flex-wrap: wrap;
+        }
+        .exp-type {
+          font-size: 0.68rem;
+          font-family: var(--font-mono);
+          padding: 0.3rem 0.65rem;
+          border-radius: 100px;
+          color: #6EE7B7;
+          background: rgba(52, 211, 153, 0.1);
+          border: 1px solid rgba(52, 211, 153, 0.25);
+        }
+        .exp-type.contract {
+          color: #67E8F9;
+          background: rgba(34, 211, 238, 0.1);
+          border-color: rgba(34, 211, 238, 0.25);
+        }
         .exp-desc {
           color: var(--text2);
-          font-size: 0.88rem;
-          line-height: 1.75;
-          font-weight: 300;
-          margin-bottom: 1rem;
+          font-size: 0.9rem;
+          line-height: 1.7;
+          margin: 0 0 1rem 1.1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.35rem;
+        }
+        .exp-desc li::marker {
+          color: var(--accent);
         }
         .exp-stack {
           display: flex;
@@ -254,7 +371,7 @@ export default function Experience() {
           font-size: 0.68rem;
           font-family: var(--font-mono);
           color: var(--text3);
-          background: var(--bg3);
+          background: var(--surface2);
           border: 1px solid var(--border);
           padding: 0.2rem 0.6rem;
           border-radius: 4px;
@@ -284,7 +401,7 @@ export default function Experience() {
             display: none;
           }
           .exp-nav-item.active {
-            background: rgba(200, 255, 0, 0.1);
+            background: rgba(var(--accent-rgb), 0.12);
             border-color: var(--accent);
             color: var(--accent);
           }
